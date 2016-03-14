@@ -1,0 +1,11 @@
+I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\Отчет СКУД.exe.config
+I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\Отчет СКУД.exe
+I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\Отчет СКУД.pdb
+I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\ClosedXML.xml
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.csprojResolveAssemblyReference.cache
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет_СКУД.Form1.resources
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет_СКУД.Properties.Resources.resources
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.csproj.GenerateResource.Cache
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.exe
+I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.pdb
+I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\ClosedXML.dll
