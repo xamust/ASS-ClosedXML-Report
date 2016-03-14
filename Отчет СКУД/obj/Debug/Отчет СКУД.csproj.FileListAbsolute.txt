@@ -9,3 +9,6 @@ I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.
 I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.exe
 I:\САБ\Отчет СКУД\Отчет СКУД\obj\Debug\Отчет СКУД.pdb
 I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\ClosedXML.dll
+I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.exe.config
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.exe
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.pdb

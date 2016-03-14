@@ -187,9 +187,9 @@ namespace Отчет_СКУД
                 //Переносим данные 1
 
                 // Определяем область для копирования
-              //  var firstTableCell = sheetExcel2XML.FirstCellUsed();
+              //  var firstTableCell = sheetExcel2XML.FirstCellUsed(); //индекс первой заполненной ячейки
                 var firstTableCell = sheetExcel2XML.Cell(5,"A");
-               // var lastTableCell = sheetExcel2XML.LastCellUsed();
+                // var lastTableCell = sheetExcel2XML.LastCellUsed(); //индекс последней заполненной ячейки
                 var lastTableCell = sheetExcel2XML.Cell(XMLlastRow2+4, "C");
                 var rngData = sheetExcel2XML.Range(firstTableCell.Address, lastTableCell.Address);
 
