@@ -12,3 +12,22 @@ I:\САБ\Отчет СКУД\Отчет СКУД\bin\Debug\ClosedXML.dll
 I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.exe.config
 I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.exe
 I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.pdb
+I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.exe
+I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.pdb
+I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\ClosedXML.dll
+I:\ASS\Report_for_ACS\Отчет СКУД\bin\Debug\ClosedXML.xml
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.csprojResolveAssemblyReference.cache
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет_СКУД.Form1.resources
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет_СКУД.Properties.Resources.resources
+I:\ASS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.csproj.GenerateResource.Cache
+I:\ACS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.exe.config
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.exe
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.pdb
+I:\ACS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.exe
+I:\ACS\Report_for_ACS\Отчет СКУД\bin\Debug\Отчет СКУД.pdb
+I:\ACS\Report_for_ACS\Отчет СКУД\bin\Debug\ClosedXML.dll
+I:\ACS\Report_for_ACS\Отчет СКУД\bin\Debug\ClosedXML.xml
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет_СКУД.Form1.resources
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет_СКУД.Properties.Resources.resources
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.csproj.GenerateResource.Cache
+I:\ACS\Report_for_ACS\Отчет СКУД\obj\Debug\Отчет СКУД.csprojResolveAssemblyReference.cache
