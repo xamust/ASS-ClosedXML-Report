@@ -39,7 +39,7 @@ namespace Отчет_СКУД
         public Form1()
         {
             InitializeComponent();
-            this.Text = "Отчет СКУД v1.0.1";
+            this.Text = "Отчет СКУД v1.0.2";
             this.label1.Text = "Форма отчета";
             this.label2.Text = "Файл СКУД";
             this.label3.Text = "1C Кадры";
@@ -192,7 +192,7 @@ namespace Отчет_СКУД
             String[] mass2 = name.Split(' ');
             int count = 0;
 
-            if (!name.Contains("."))
+            if (!name.Contains(".") || name.Contains("-"))
             {
                 resultC = name; //корейские  фамилии (и пр. без точки)
             }
@@ -217,12 +217,14 @@ namespace Отчет_СКУД
                 return resultC;
         }
 
-        void CreateDoc()
+        void CreateDoc(String nameFile)
         {
             var workbook = new XLWorkbook();
-            var worksheet = workbook.Worksheets.Add("Сводка за __-__.__. " + new DateTime().Year.ToString());
-            worksheet.Cell("A1").Value = "Hello World!";
-            workbook.SaveAs("Temp.xlsx");
+           // var worksheet = workbook.Worksheets.Add("Сводка за __-__.__. " + new DateTime().Year.ToString());
+           // worksheet.Cell("A1").Value = "Hello World!";
+           // workbook.SaveAs("Temp.xlsx");
+            var worksheet = workbook.Worksheets.Add("temp");
+            workbook.SaveAs(nameFile);
         }
 
         //Module1 - done
@@ -288,7 +290,7 @@ namespace Отчет_СКУД
                 MessageBox.Show(ex.ToString());    
             }
         }
-        //Module2 - done
+        //Module2
         void Module2(String file1, String file3)
         {
             String memoryOrg = "";
@@ -299,44 +301,65 @@ namespace Отчет_СКУД
                 sheetExcel3XML = excelApp3XML.Worksheet(1);
                 XMLlastRow1 = sheetExcel1XML.RowsUsed().Count();
                 XMLlastRow3 = sheetExcel3XML.RowsUsed().Count();
+                String tempName = "TempModule2.xlsx";
+                CreateDoc(tempName);
+                XLWorkbook tempExcel1 = new XLWorkbook(tempName);
+                IXLWorksheet tempExcel1Sheet = tempExcel1.Worksheet(1);
+                int counter = 1;
+                for (int r = 1; r <= XMLlastRow3; r++)
+                {
+                    //вытаскиваем название службы (если ячейка I не объед. и значение A не 0 и J не объед., то нам подходит)
+                    if (sheetExcel3XML.Cell(r, "I").IsMerged() & sheetExcel3XML.Cell(r, "A").Value.ToString() != "" & !sheetExcel3XML.Cell(r, "J").IsMerged())
+                    {
+                        // MessageBox.Show("Служба " + sheetExcel3XML.Cell(r, "A").Value.ToString()); //for test
+                        //   memoryOrg = sheetExcel3XML.Cell(r, "A").Value.ToString();
+                    }
+                    //для отлавливания названия отдела
+                    else if (sheetExcel3XML.Cell(r, "I").IsMerged() & sheetExcel3XML.Cell(r, "A").Value.ToString() == "")
+                    {
+                        // MessageBox.Show("Отдел " + sheetExcel3XML.Cell(r, "B").Value.ToString()); //for test      
+                        if (sheetExcel3XML.Cell(r, "B").Value.ToString() == "") memoryOrg = sheetExcel3XML.Cell(r, "C").Value.ToString();
+                        else if (sheetExcel3XML.Cell(r, "B").Value.ToString() != "") memoryOrg = sheetExcel3XML.Cell(r, "B").Value.ToString();        
+                    }
+
+                    //вытаскиваем ФИО
+                    else if (!sheetExcel3XML.Cell(r, "F").IsMerged() & sheetExcel3XML.Cell(r, "F").Value.ToString() != "Фамилия Имя Отчество")
+                    {
+                        // this.Invoke(new ThreadStart(delegate { label6.Text = sheetExcel1XML.Cell(i, "B").Value.ToString() + " " + sheetExcel3XML.Cell(r, "F").Value.ToString(); }));
+                        tempExcel1Sheet.Cell(counter, "A").Value = NameConvertion(sheetExcel3XML.Cell(r, "F").Value.ToString());
+                        tempExcel1Sheet.Cell(counter, "B").Value = sheetExcel3XML.Cell(r, "G").Value.ToString();//Должность
+                        tempExcel1Sheet.Cell(counter, "C").Value = memoryOrg;//Подразделение    
+                        counter++;
+                    }
+                }
+                tempExcel1.Save();
+
+                int tempExcelLastRow1 = tempExcel1Sheet.RowsUsed().Count();
 
                 for (int i = 1; i <= XMLlastRow1; i++)
                 {
                     if (sheetExcel1XML.Cell(i, "B").Value.ToString() != "Сотрудник")
                     {
-                        for (int r = 1; r <= XMLlastRow3; r++)
+                        for (int r = 1; r <= tempExcelLastRow1; r++)
                         {
-                            //вытаскиваем название службы (если ячейка I не объед. и значение A не 0 и J не объед., то нам подходит)
-                            if (sheetExcel3XML.Cell(r, "I").IsMerged() & sheetExcel3XML.Cell(r, "A").Value.ToString() != "" & !sheetExcel3XML.Cell(r, "J").IsMerged())
-                            {
-                                // MessageBox.Show("Служба " + sheetExcel3XML.Cell(r, "A").Value.ToString()); //for test
-                             //   memoryOrg = sheetExcel3XML.Cell(r, "A").Value.ToString();
-                            }
-                            //для отлавливания названия отдела
-                            else if (sheetExcel3XML.Cell(r, "I").IsMerged() & sheetExcel3XML.Cell(r, "A").Value.ToString() == "")
-                            {
-                                // MessageBox.Show("Отдел " + sheetExcel3XML.Cell(r, "B").Value.ToString()); //for test
-                                memoryOrg = sheetExcel3XML.Cell(r, "B").Value.ToString();
-                            }
-                            //вытаскиваем ФИО
-                            else if (!sheetExcel3XML.Cell(r, "F").IsMerged() & sheetExcel3XML.Cell(r, "F").Value.ToString() != "Фамилия Имя Отчество")
-                            {
-                                if (NameCanonical(sheetExcel1XML.Cell(i, "B").Value.ToString()).Equals(NameConvertion(sheetExcel3XML.Cell(r, "F").Value.ToString())))
+                                if (NameCanonical(sheetExcel1XML.Cell(i, "B").Value.ToString()).Equals(tempExcel1Sheet.Cell(r, "A").Value.ToString()))
                                 {
                                    // this.Invoke(new ThreadStart(delegate { label6.Text = sheetExcel1XML.Cell(i, "B").Value.ToString() + " " + sheetExcel3XML.Cell(r, "F").Value.ToString(); }));
-                                    sheetExcel1XML.Cell(i, "K").Value = sheetExcel3XML.Cell(r, "G").Value.ToString();//Должность
-                                    sheetExcel1XML.Cell(i, "L").Value = memoryOrg;//Подразделение
+                                    sheetExcel1XML.Cell(i, "K").Value = tempExcel1Sheet.Cell(r, "B").Value.ToString();//Должность
+                                    sheetExcel1XML.Cell(i, "L").Value = tempExcel1Sheet.Cell(r, "C").Value.ToString();//Подразделение
                                 }
-                            }
                         }
                     }
                 }
                 //сохраняем
                 excelApp1XML.Save();
                 //удаляем
+                tempExcel1Sheet.Dispose();
+                tempExcel1.Dispose();
                 sheetExcel3XML.Dispose();
                 excelApp3XML.Dispose();
                 File.Delete(file3);
+                File.Delete(tempName);
             }
             catch (Exception ex)
             {
